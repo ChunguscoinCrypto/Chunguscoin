@@ -4,17 +4,18 @@
 // file COPYING or http://www.opensource.org/licenses/mit-license.php.
 
 // C Libraries:
+#include <stdio.h>
+#include <unistd.h>
 #include <iostream>
 #include <iterator>
 #include <numeric>
 #include <sstream>
-#include <stdio.h>
 #include <string>
-#include <unistd.h>
 #include <vector>
 
-#include "console.h"
 #include "test.h"
+#include "console.h"
+#include "rpc.h"
 
 // Namespaces:
 using namespace std;
@@ -51,13 +52,14 @@ int main(int argc, char **argv) {
         command += s + " ";
       }
 
+      string opt;
+      for (auto const &s : opts) {
+        opt += s + " ";
+      }
+
       // Call RPC function
-      // rpc(command, opts)
+      rpc(command, opt);
 
-      print("Command + args: " + command);
-
-      for (uint i = 0; i < opts.size(); ++i)
-        print("RPC Options: " + opts[i]);
 
       return 0;
 
