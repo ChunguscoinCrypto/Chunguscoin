@@ -9,18 +9,10 @@
 
 void rpc(std::string command, std::string opts)
 {
-    print("==========================================");
-    print("RPC Command -> " + command);
-    print("==========================================");
-    print("RPC args -> " + opts);
-    print("==========================================");
+    // print("./komodo-cli " + get_params() + opts + command);
 
-    print("==============| CHUNG ARGS |==============");
-    print(get_params());
-    print("==========================================");
-    print("=============| FULL COMMAND |=============");
-    print("./komodo-cli " + get_params() + opts + command);
-    print("==========================================");
+    print("Command to run:");
+    print("./komodo-cli " + opts + command);
 
     return;
 }

@@ -16,6 +16,7 @@
 #include "test.h"
 #include "console.h"
 #include "rpc.h"
+#include "node.h"
 
 // Namespaces:
 using namespace std;
@@ -24,6 +25,7 @@ int main(int argc, char **argv) {
 
   if (argc <= 1) {
     print("Running wallet...");
+    print("Running test command ->");
     testFunc();
     return 0;
   }
@@ -68,6 +70,33 @@ int main(int argc, char **argv) {
     /* Node command */
     if (arg == "node") {
       print("node");
+
+      vector<string> opts;
+      vector<string> actions;
+
+      for (int i = 2; i < argc; ++i) {
+        string action = string(argv[i]);
+
+        if (action[0] == "-"[0])
+          opts.push_back(action);
+        else if (action == "start" || action == "stop")
+          actions.push_back(action);
+        else
+          errorout("Arg " + action + " is not a vaild option.");
+      }
+
+      string command;
+      for (auto const &s : actions) {
+        command += s;
+      }
+
+      string opt;
+      for (auto const &s : opts) {
+        opt += s + " ";
+      }
+
+      // Call RPC function
+      node(command, opt);
 
       return 0;
 

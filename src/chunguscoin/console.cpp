@@ -12,3 +12,14 @@ void print(std::string str)
 {
    std::cout << str << std::endl;
 }
+
+void error(std::string str)
+{
+   std::cout << str << std::endl;
+}
+
+void errorout(std::string str)
+{
+   std::cout << str << std::endl;
+   std::exit(0);
+}

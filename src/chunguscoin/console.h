@@ -7,3 +7,5 @@
 
 #include <string>
 void print(std::string);
+void error(std::string);
+void errorout(std::string);
