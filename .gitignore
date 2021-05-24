@@ -34,3 +34,6 @@ src/chunguscoin/chunguscoin
 
 # Vim Files
 src/chunguscoin/Session.vim
+
+# Test folder
+src/chunguscoin/test
