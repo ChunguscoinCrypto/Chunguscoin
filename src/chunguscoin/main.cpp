@@ -4,6 +4,7 @@
 // file COPYING or http://www.opensource.org/licenses/mit-license.php.
 
 // C Libraries:
+#include <stdexcept>
 #include <stdio.h>
 #include <unistd.h>
 #include <iostream>

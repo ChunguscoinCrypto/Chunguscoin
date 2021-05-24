@@ -5,6 +5,8 @@
 
 #include "console.h"
 #include "blockchain.h"
+#include "rpc.h"
+#include "exec.h"
 #include <string>
 
 void rpc(std::string command, std::string opts)
@@ -12,7 +14,8 @@ void rpc(std::string command, std::string opts)
     // print("./komodo-cli " + get_params() + opts + command);
 
     print("Command to run:");
-    print("./komodo-cli " + opts + command);
+    print("./komodo-cli " + get_name() + opts + command);
+    exec_chungcli(opts + get_name() + command);
 
     return;
 }

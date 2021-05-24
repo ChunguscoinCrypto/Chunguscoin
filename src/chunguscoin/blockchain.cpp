@@ -34,3 +34,9 @@ std::string get_params()
 
     return params;
 }
+
+/* Return ac_name */
+std::string get_name()
+{
+    return "-ac_name=" + ac_name + " ";
+}

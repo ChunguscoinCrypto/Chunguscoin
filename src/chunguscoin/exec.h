@@ -3,10 +3,10 @@
 // Distributed under the MIT software license, see the accompanying
 // file COPYING or http://www.opensource.org/licenses/mit-license.php.
 
-/* Blockchain params */
+/* Exec Handler */
 
-/* Return params as string */
 #include <string>
 
-std::string get_params();
-std::string get_name();
+void exec(const char* cmd);
+void exec_chungd(std::string opts);
+void exec_chungcli(std::string opts);

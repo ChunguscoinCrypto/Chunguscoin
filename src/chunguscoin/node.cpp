@@ -6,6 +6,7 @@
 #include "console.h"
 #include "blockchain.h"
 #include "node.h"
+#include "exec.h"
 #include <string>
 
 void node(std::string command, std::string opts)
@@ -21,12 +22,14 @@ void node_start(std::string opts)
 {
     print("Command to run:");
     print("./komodod " + get_params() + opts);
+    exec_chungd(get_params() + opts);
     return;
 }
 
 void node_stop(std::string opts)
 {
     print("Command to run:");
-    print("./komodod-cli " + opts + "stop");
+    print("./komodod-cli " + get_name() + opts + "stop");
+    exec_chungcli(get_name() + opts + "stop ");
     return;
 }
