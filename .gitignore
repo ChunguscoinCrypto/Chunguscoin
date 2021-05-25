@@ -35,5 +35,7 @@ src/chunguscoin/chunguscoin
 # Vim Files
 src/chunguscoin/Session.vim
 
-# Test folder
+# Depends, Test, and Build folders
 src/chunguscoin/test
+build/*
+depends/*

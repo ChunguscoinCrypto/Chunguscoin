@@ -11,8 +11,8 @@ OBJ = main.o blockchain.o console.o exec.o node.o rpc.o util.o test.o
       
 $(TARGET): $(OBJ)
 	$(CC) $(CFLAGS) -o $@ $^
-	cp $(TARGET) ../../builds/$(TARGET)
+	cp $(TARGET) ../../build/$(TARGET)
 
 clean:
 	rm *.o $(objects) $(TARGET)
-	rm ../../builds/$(TARGET)
+	rm ../../build/$(TARGET)
