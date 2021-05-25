@@ -39,3 +39,5 @@ src/chunguscoin/Session.vim
 src/chunguscoin/test
 build/*
 depends/*
+!depends/README.md
+!build/README.md
