@@ -11,6 +11,8 @@ OBJ = main.o blockchain.o console.o exec.o node.o rpc.o util.o test.o
       
 $(TARGET): $(OBJ)
 	$(CC) $(CFLAGS) -o $@ $^
+	cp $(TARGET) ../../builds/$(TARGET)
 
 clean:
-	rm *.o $(objects) chunguscoin
+	rm *.o $(objects) $(TARGET)
+	rm ../../builds/$(TARGET)
