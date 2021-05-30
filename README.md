@@ -3,6 +3,7 @@
 Meme coin
 
 # Folder layout
+```
 ./build -> output
 ./depends -> needed libs
 ./doc -> docs
@@ -10,6 +11,7 @@ Meme coin
 ./src/chunguscoin -> cli tool
 ./src/komodo -> smart chain source code
 ./src/KomodoOcean -> QT Wallet
+```
 
 More info coming soon.
 
