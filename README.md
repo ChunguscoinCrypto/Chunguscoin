@@ -1,6 +1,6 @@
 # Chunguscoin
 
-Meme coin
+Chunguscoin is an meme based, opensource, decentralized, peer-to-peer digital currency with a multipurpose design.
 
 # Folder layout
 ```
