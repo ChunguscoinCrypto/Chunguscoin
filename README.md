@@ -8,9 +8,9 @@ Chunguscoin is an meme based, opensource, decentralized, peer-to-peer digital cu
 ./depends -> needed libs
 ./doc -> docs
 ./src -> code
-./src/chunguscoin -> cli tool
-./src/komodo -> smart chain source code
-./src/KomodoOcean -> QT Wallet
+./src/cli -> cli tool
+./src/wallet -> QT Wallet
+./src/komodo -> smart chain source code **not needed**
 ```
 
 More info coming soon.
