@@ -1,0 +1,7 @@
+#!/bin/bash
+set -eo pipefail
+chunguscoin_cli='./chunguscoin-cli'
+
+./listassetchains | while read chain; do
+  $chunguscoin_cli --ac_name=$chain stop
+done

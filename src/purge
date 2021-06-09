@@ -1,0 +1,5 @@
+rm -rf ~/.chunguscoin/$1/chainstate
+rm -rf ~/.chunguscoin/$1/database
+rm -rf ~/.chunguscoin/$1/blocks
+rm -rf ~/.chunguscoin/$1/chunguscoinstate
+

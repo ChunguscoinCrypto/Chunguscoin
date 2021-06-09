@@ -1,0 +1,74 @@
+TESTS += chunguscoin-test
+bin_PROGRAMS += chunguscoin-test
+
+# tool for generating our public parameters
+chunguscoin_test_SOURCES = \
+    test-chunguscoin/main.cpp \
+    test-chunguscoin/testutils.cpp \
+    test-chunguscoin/test_cryptoconditions.cpp \
+    test-chunguscoin/test_coinimport.cpp \
+    test-chunguscoin/test_eval_bet.cpp \
+    test-chunguscoin/test_eval_notarisation.cpp \
+    test-chunguscoin/test_parse_notarisation.cpp \
+    test-chunguscoin/test_buffered_file.cpp \
+    test-chunguscoin/test_sha256_crypto.cpp \
+    test-chunguscoin/test_script_standard_tests.cpp \
+    test-chunguscoin/test_multisig_tests.cpp \
+    test-chunguscoin/test_merkle_tests.cpp \
+    test-chunguscoin/test_addrman.cpp \
+    test-chunguscoin/test_netbase_tests.cpp
+
+chunguscoin_test_CPPFLAGS = $(chunguscoind_CPPFLAGS)
+
+# https://www.gnu.org/software/make/manual/html_node/Text-Functions.html
+# https://wiki.trinitydesktop.org/Makefile.am_HOWTO#LDADD
+
+chunguscoin_test_LDADD = -lgtest $(chunguscoind_LDADD)
+
+# chunguscoin_test_LDADD = $(LIBBITCOIN_SERVER) \
+#                     $(LIBBITCOIN_COMMON) \
+#                     $(LIBUNIVALUE) \
+#                     $(LIBBITCOIN_UTIL) \
+#                     $(LIBBITCOIN_CRYPTO) \
+#                     $(LIBVERUS_CRYPTO) \
+#                     $(LIBVERUS_PORTABLE_CRYPTO) \
+#                     $(LIBZCASH) \
+#                     $(LIBSNARK) \
+#                     $(LIBLEVELDB) \
+#                     $(LIBMEMENV) \
+#                     $(LIBSECP256K1) \
+#                     $(LIBCRYPTOCONDITIONS)
+
+# if ENABLE_ZMQ
+# chunguscoin_test_LDADD += $(LIBBITCOIN_ZMQ) $(ZMQ_LIBS)
+# endif
+# if ENABLE_WALLET
+# chunguscoin_test_LDADD += $(LIBBITCOIN_WALLET)
+# endif
+
+# chunguscoin_test_LDADD += \
+#                     $(BOOST_LIBS) \
+#                     $(BDB_LIBS) \
+#                     $(SSL_LIBS) \
+#                     $(CRYPTO_LIBS) \
+#                     $(MINIUPNPC_LIBS) \
+#                     $(EVENT_PTHREADS_LIBS) \
+#                     $(EVENT_LIBS) \
+#                     $(LIBZCASH) \
+#                     $(LIBBITCOIN_CRYPTO) \
+#                     $(LIBVERUS_CRYPTO) \
+#                     $(LIBVERUS_PORTABLE_CRYPTO) \
+#                     $(LIBSNARK) \
+#                     $(LIBZCASH_LIBS) \
+#                     $(LIBSECP256K1) \
+#                     -lgtest
+
+chunguscoin_test_LDFLAGS = $(RELDFLAGS) $(AM_LDFLAGS) $(LIBTOOL_APP_LDFLAGS) -static
+chunguscoin_test_LIBTOOLFLAGS = --tag CXX
+
+yellow := $(shell tput setaf 11)
+reset := $(shell tput sgr0)
+$(info $(yellow)[ Decker ]$(reset) Check the $(yellow)chunguscoin_test$(reset) dependencies ...)
+
+$(info $(yellow)$$chunguscoind_LDADD$(reset) is [$(chunguscoind_LDADD)])
+$(info $(yellow)$$chunguscoin_test_LDADD$(reset) is [${chunguscoin_test_LDADD}])

@@ -1,4 +1,0 @@
-[submodule "src/komodo"]
-	path = src/komodo
-	url = https://github.com/KomodoPlatform/komodo.git
-	branch = 0.6.1
