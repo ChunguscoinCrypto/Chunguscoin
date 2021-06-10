@@ -1,6 +1,6 @@
 TEMPLATE = app
 TARGET = ChunguscoinGUI
-VERSION = 0.1.0.0
+VERSION = 0.1.0
 
 INCLUDEPATH += src src\qt src\libsnark src\protobuf src\secp256k1 src\secp256k1\include src\leveldb\include src\leveldb\helpers\memenv src\leveldb src\univalue\include src\libevent\include src\libevent\compat src\cryptoconditions\include src\cryptoconditions src\cryptoconditions\src\asn
 
