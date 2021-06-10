@@ -24,7 +24,7 @@ const char* params[] =
 
 void SetChungusParams(int argc, char *argv[])
 {
-    printf("Welcome to Chunguscoin! \n");
+    std::cout << "Welcome to Chunguscoin!";
 
     argc--;
     argv++;
