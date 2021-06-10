@@ -1,19 +1,10 @@
-# Chunguscoin (chunguscoin-qt) #
+# Chunguscoin #
 
-![Downloads](https://img.shields.io/github/downloads/DeckerSU/Chunguscoin/total)
+![](./icons/coin.png)
 
-![](./doc/images/chunguscoin-qt-promo-2020-01.jpg)
+![Downloads](https://img.shields.io/github/downloads/ChunguscoinCrypto/Chunguscoin/total)
 
-Chunguscoin-Qt (Chunguscoin) is a world-first Qt native wallet for KMD ([Chunguscoin](https://chunguscoinplatform.com/)) and smartchains (assetchains). It's available for three OS platforms - Windows, Linux, MacOS.
-
-Use the default `static` branch and following scripts to build:
-
-- Linux: `build.sh` (native build)
-- Windows: `build-win.sh` (cross-compilation for Win)
-- MacOS: `build-mac-cross.sh` (cross-compilation for OSX)
-- MacOS: `build-mac.sh` (native build)
-
-Visit [#wallet-ocean-qt](https://discord.gg/U5WWaJR) channel in Chunguscoin Discord for more information.
+ Chunguscoin is an meme based, opensource, decentalized, peer-to-peer digital currency with a multipurpose design.
 
 ## How to build? ##
 
@@ -25,15 +16,15 @@ sudo apt-get install build-essential pkg-config libc6-dev m4 g++-multilib autoco
 ```
 
 ```shell
-git clone https://github.com/DeckerSU/Chunguscoin --branch static --single-branch
+git clone https://github.com/ChunguscoinCrypto/Chunguscoin
 cd chunguscoin
 ./zcutil/fetch-params.sh
 # -j8 = using 8 threads for the compilation - replace 8 with number of threads you want to use
-./zcutil/build-linux.sh -j8
+./build.sh -j8
 #This can take some time.
 ```
 
-#### OSX (Cross-compile)
+#### OSX (Cross-compile using Linux)
 
 Before start, read the following docs: [depends](https://github.com/bitcoin/bitcoin/blob/master/depends/README.md), [macdeploy](https://github.com/bitcoin/bitcoin/blob/master/contrib/macdeploy/README.md) .
 
@@ -42,7 +33,7 @@ Install dependencies:
 sudo apt-get install curl librsvg2-bin libtiff-tools bsdmainutils cmake imagemagick libcap-dev libz-dev libbz2-dev python3-setuptools libtinfo5 xorriso
 ```
 
-Place prepared SDK file `Xcode-11.3.1-11C505-extracted-SDK-with-libcxx-headers.tar.gz` in repo root, use `build-mac-cross.sh` script to build.
+Place prepared SDK file `Xcode-11.3.1-11C505-extracted-SDK-with-libcxx-headers.tar.gz` in repo root, run `./zcutil/build-mac-cross.sh` in the terminal to build.
 
 #### OSX (Native)
 Ensure you have [brew](https://brew.sh) and Command Line Tools installed.
@@ -62,8 +53,7 @@ brew install protobuf
 brew install coreutils
 brew install wget
 # Clone the Chunguscoin repo
-git clone https://github.com/DeckerSU/Chunguscoin --branch static --single-branch
-# Change master branch to other branch you wish to compile
+git clone https://github.com/ChunguscoinCrypto/Chunguscoin
 cd chunguscoin
 ./zcutil/fetch-params.sh
 # -j8 = using 8 threads for the compilation - replace 8 with number of threads you want to use
@@ -84,7 +74,7 @@ sudo update-alternatives --config x86_64-w64-mingw32-gcc
 sudo update-alternatives --config x86_64-w64-mingw32-g++
 # (configure to use POSIX variant)
 
-git clone https://github.com/DeckerSU/Chunguscoin --branch static --single-branch
+git clone https://github.com/ChunguscoinCrypto/Chunguscoin
 cd chunguscoin
 ./zcutil/fetch-params.sh
 # -j8 = using 8 threads for the compilation - replace 8 with number of threads you want to use
@@ -95,7 +85,9 @@ cd chunguscoin
 
 *p.s.* Currently only `x86_64` arch supported for MacOS, build for `Apple M1` processors unfortunately not yet supported.
 
-## Developers of Qt wallet ##
+## Credits ##
 
-- Main developer: **Ocean**
-- IT Expert / Sysengineer: **Decker**
+- Komodo QT Wallet developer: **Ocean**
+- Komodo IT Expert / Sysengineer: **Decker**
+
+Created by Shafil Alam.
