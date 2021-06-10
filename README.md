@@ -1,6 +1,6 @@
 # Chunguscoin #
 
-![](./icons/coin.png)
+<img src="./icons/coin.png" alt="Chunguscoin" width="128" height="128" />
 
 ![Downloads](https://img.shields.io/github/downloads/ChunguscoinCrypto/Chunguscoin/total)
 
