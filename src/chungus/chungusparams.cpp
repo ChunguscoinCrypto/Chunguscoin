@@ -16,10 +16,9 @@ const char* params[] =
 {
     "chung-args",
     "-ac_name=CHUNG",
-    "-ac_supply=90000000000",
-    "-ac_reward=100000000",
-    "-addnode=172.106.70.133:19863",
-    "-datadir=/media/furious/Data/Chungus/CHUNG"
+    "-ac_reward=5000000000",
+    "-ac_halving=3000000",
+    "-addnode=172.106.70.133:22001"
 };
 
 void SetChungusParams(int argc, char *argv[])
