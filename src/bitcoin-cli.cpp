@@ -24,8 +24,10 @@
 #include "rpc/protocol.h"
 #include "util.h"
 #include "utilstrencodings.h"
+#include "chungus/chungusparams.h"
 
 #include <boost/filesystem/operations.hpp>
+#include <set>
 #include <stdio.h>
 
 #include <event2/buffer.h>
@@ -94,7 +96,7 @@ static int AppInitRPC(int argc, char* argv[])
     //
     // Parameters
     //
-    ParseParameters(argc, argv);
+    SetChungusParams(argc, argv);
     std:string name;
     name = GetArg("-ac_name","");
     if ( !name.empty() )

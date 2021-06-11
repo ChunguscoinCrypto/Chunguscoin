@@ -538,6 +538,7 @@ endif
 # cli: zcash-cli
 libbitcoin_cli_a_CPPFLAGS = $(BITCOIN_INCLUDES)
 libbitcoin_cli_a_SOURCES = \
+  chungus/chungusparams.cpp \
   rpc/client.cpp \
   $(BITCOIN_CORE_H) \
   $(LIBZCASH_H)
