@@ -69,11 +69,6 @@ curl https://sh.rustup.rs -sSf | sh
 source $HOME/.cargo/env
 rustup target add x86_64-pc-windows-gnu
 
-sudo update-alternatives --config x86_64-w64-mingw32-gcc
-# (configure to use POSIX variant)
-sudo update-alternatives --config x86_64-w64-mingw32-g++
-# (configure to use POSIX variant)
-
 git clone https://github.com/ChunguscoinCrypto/Chunguscoin
 cd chunguscoin
 ./zcutil/fetch-params.sh

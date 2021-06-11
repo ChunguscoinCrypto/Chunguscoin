@@ -1,8 +1,8 @@
 #!/usr/bin/env bash
 
 HOST=x86_64-w64-mingw32
-CXX=x86_64-w64-mingw32-g++-posix
-CC=x86_64-w64-mingw32-gcc-posix
+CXX=x86_64-w64-mingw32-g++
+CC=x86_64-w64-mingw32-gcc
 PREFIX="$(pwd)/depends/$HOST"
 
 set -eu -o pipefail
