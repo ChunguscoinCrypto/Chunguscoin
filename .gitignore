@@ -125,7 +125,8 @@ src/qt/moc_*.cpp
 src/qt/forms/ui_*.h        
 src/qt/test/moc*.cpp       
 chunguscoin-qt                 
-chunguscoin-qt_test            
+chunguscoin-qt_test        
+src/chunguscoin-cli    
 src/qt/gen*
 
 src/config/chunguscoin-config.h
