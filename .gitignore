@@ -137,3 +137,6 @@ src/qt/chunguscoin-qt
 
 # chain files for smartchain
 src/qt/*_7776
+
+# Build folder
+build/
