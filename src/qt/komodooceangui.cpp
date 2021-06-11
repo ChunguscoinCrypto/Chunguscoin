@@ -503,7 +503,7 @@ void ChunguscoinGUI::createToolBars()
         toolbar->addAction(zsendCoinsAction);
         toolbar->addAction(receiveCoinsAction);
         toolbar->addAction(historyAction);
-        toolbar->addAction(newToken);
+        /* toolbar->addAction(newToken); - Coming soon! */
         overviewAction->setChecked(true);
     }
 }
@@ -600,9 +600,9 @@ void ChunguscoinGUI::setWalletActionsEnabled(bool enabled)
     sendCoinsAction->setEnabled(enabled);
     zsendCoinsAction->setEnabled(enabled);
     newToken->setEnabled(enabled);
+    newTokenMenu->setEnabled(enabled);
     sendCoinsMenuAction->setEnabled(enabled);
     zsendCoinsMenuAction->setEnabled(enabled);
-    newTokenMenu->setEnabled(enabled);
     receiveCoinsAction->setEnabled(enabled);
     receiveCoinsMenuAction->setEnabled(enabled);
     historyAction->setEnabled(enabled);
