@@ -409,7 +409,7 @@ RES_IMAGES =
 
 RES_MOVIES = $(wildcard $(srcdir)/qt/res/movies/spinner-*.png)
 
-CHUNGUSCOIN_RC = qt/res/chunguscoin-qt-res.rc
+CHUNGUSCOIN_RC = qt/res/komodo-qt-res.rc
 
 CHUNGUSCOIN_QT_INCLUDES = -I$(builddir)/qt -I$(srcdir)/qt -I$(srcdir)/qt/forms \
   -I$(builddir)/qt/forms -DQT_NO_KEYWORDS 

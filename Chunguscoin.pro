@@ -598,7 +598,7 @@ QMAKE_EXTRA_COMPILERS += TSQM
 
 # "Other files" to show in Qt Creator
 OTHER_FILES += \
-    doc/*.rst doc/*.txt doc/README README.md src/qt/res/chunguscoin-qt-res.rc
+    doc/*.rst doc/*.txt doc/README README.md src/qt/res/komodo-qt-res.rc
 
 # platform specific defaults, if not overridden on command line
 isEmpty(BOOST_LIB_SUFFIX) {
@@ -612,7 +612,7 @@ isEmpty(BOOST_THREAD_LIB_SUFFIX) {
     else:BOOST_THREAD_LIB_SUFFIX = $$BOOST_LIB_SUFFIX
 }
 
-windows:RC_FILE = src/qt/res/chunguscoin-qt-res.rc
+windows:RC_FILE = src/qt/res/komodo-qt-res.rc
 
 windows:!contains(MINGW_THREAD_BUGFIX, 0) {
     # At least qmake's win32-g++-cross profile is missing the -lmingwthrd
