@@ -15,7 +15,7 @@ Chunguscoin is an meme based, opensource, decentalized, peer-to-peer digital cur
 
 *Chunguscoin is a Komodo Smart Chain and the QT wallet was forked from KomodoOcean.*
 
-# License
+# License ⚖️
 Coming soon... 
 
 # Infomation
@@ -29,11 +29,11 @@ Coming soon...
 
 # Features
 Chunguscoin is built on Komodo, which is capable of doing all DeFi things using CryptoConditions.
-- Tokens, can be used to create and trade tokens/NFTs.
-- Decentralized faucets
-- Heir, can help manage funds in a way that it can be passed on to heir for inheridence.
-- Oracles, to link real world data to blockchain based decentralized applications. Oracles are what powers DeFi. It is powerful technology and it works with Chunguscoin!
-- Pegs, to make decentralized stablecoins or making pegged cryptocurrencies to other kind of assets.
+- [**Tokens**](https://developers.komodoplatform.com/basic-docs/antara/antara-api/assets.html), can be used to create and trade tokens/NFTs.
+- [**Heir**](https://developers.komodoplatform.com/basic-docs/antara/antara-api/heir.html), can help manage funds in a way that it can be passed on to heir for inheridence.
+- [**Oracles**](https://developers.komodoplatform.com/basic-docs/antara/antara-api/oracles.html), to link real world data to blockchain based decentralized applications. Oracles are what powers DeFi. It is powerful technology and it works with Chunguscoin!
+- [**Pegs**](https://developers.komodoplatform.com/basic-docs/antara/antara-api/pegs.html), to make decentralized stablecoins or making pegged cryptocurrencies to other kind of assets.
+- [**Decentralized faucets**](https://developers.komodoplatform.com/basic-docs/antara/antara-api/faucet.html), to give away free CHUNG to people.
 
 # How to build?
 
