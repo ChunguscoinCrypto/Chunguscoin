@@ -6,7 +6,7 @@ Chunguscoin [CHUNG, Ȼ]
 
 <div align="center">
 
-![ChungusBadge](https://img.shields.io/badge/Chungus-Coin-green.svg)](https://chunguscoin.net)
+![ChungusBadge](https://img.shields.io/badge/Chungus-Coin-green.svg)(https://chunguscoin.net)
 ![Downloads](https://img.shields.io/github/downloads/ChunguscoinCrypto/Chunguscoin/total)
 
 </div>
