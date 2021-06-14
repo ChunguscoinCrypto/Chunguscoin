@@ -1,10 +1,17 @@
-# Chunguscoin #
+<h1 align="center">
+Chunguscoin [CHUNG, Ȼ]  
+<br/><br/>
+<img src="./icons/coin.png" alt="Chunguscoin" width="300"/>
+</h1>
 
-<img src="./icons/coin.png" alt="Chunguscoin" width="128" height="128" />
+<div align="center">
 
+![ChungusBadge](https://img.shields.io/badge/Chungus-Coin-green.svg)](https://chunguscoin.net)
 ![Downloads](https://img.shields.io/github/downloads/ChunguscoinCrypto/Chunguscoin/total)
 
- Chunguscoin is an meme based, opensource, decentalized, peer-to-peer digital currency with a multipurpose design.
+</div>
+
+Chunguscoin is an meme based, opensource, decentalized, peer-to-peer digital currency with a multipurpose design.
 
 ## How to build? ##
 
@@ -82,7 +89,8 @@ cd chunguscoin
 
 ## Credits ##
 
+- Forked from KomodoOcean
 - Komodo QT Wallet developer: **Ocean**
 - Komodo IT Expert / Sysengineer: **Decker**
 
-Created by Shafil Alam.
+Repo created by Shafil Alam.
