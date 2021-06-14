@@ -16,9 +16,9 @@ Chunguscoin is an meme based, opensource, decentalized, peer-to-peer digital cur
 *Chunguscoin is a Komodo Smart Chain and the QT wallet was forked from KomodoOcean.*
 
 # License ⚖️
-Coming soon... 
+For license information see the file [COPYING](https://github.com/ChunguscoinCrypto/Chunguscoin/blob/master/COPYING).
 
-# Infomation
+# Infomation 🐰
 - Total supply of 200 million coins.
 - Block reward of 50 CHUNG
 - Blocktime of 1 minute.
@@ -55,7 +55,7 @@ cd chunguscoin
 
 #### OSX (Cross-compile using Linux)
 
-Before start, read the following docs: [depends](https://github.com/bitcoin/bitcoin/blob/master/depends/README.md), [macdeploy](https://github.com/bitcoin/bitcoin/blob/master/contrib/macdeploy/README.md) .
+Before start, read the following docs: [depends](https://github.com/bitcoin/bitcoin/blob/master/depends/README.md) and [macdeploy](https://github.com/bitcoin/bitcoin/blob/master/contrib/macdeploy/README.md).
 
 Install dependencies:
 ```
@@ -105,7 +105,7 @@ cd chunguscoin
 ./zcutil/build-win.sh -j8
 #This can take some time.
 ```
-**chunguscoin is experimental and a work-in-progress.** Use at your own risk.
+**Chunguscoin is experimental and a work-in-progress!** Use at your own risk.
 
 *p.s.* Currently only `x86_64` arch supported for MacOS, build for `Apple M1` processors unfortunately not yet supported.
 
