@@ -13,7 +13,29 @@ Chunguscoin [CHUNG, Ȼ]
 
 Chunguscoin is an meme based, opensource, decentalized, peer-to-peer digital currency with a multipurpose design.
 
-## How to build? ##
+*Chunguscoin is a Komodo Smart Chain and the QT wallet was forked from KomodoOcean.*
+
+# License
+Coming soon... 
+
+# Infomation
+- Total supply of 200 million coins.
+- Block reward of 50 CHUNG
+- Blocktime of 1 minute.
+- Smart contracts using CryptoConditions
+- Equihash Mining algorithm
+- Privacy using [zk-SNARKS](https://z.cash/technology/zksnarks/)
+- Open-source software.
+
+# Features
+Chunguscoin is built on Komodo, which is capable of doing all DeFi things using CryptoConditions.
+- Tokens, can be used to create and trade tokens/NFTs.
+- Decentralized faucets
+- Heir, can help manage funds in a way that it can be passed on to heir for inheridence.
+- Oracles, to link real world data to blockchain based decentralized applications. Oracles are what powers DeFi. It is powerful technology and it works with Chunguscoin!
+- Pegs, to make decentralized stablecoins or making pegged cryptocurrencies to other kind of assets.
+
+# How to build?
 
 #### Linux
 
@@ -87,7 +109,7 @@ cd chunguscoin
 
 *p.s.* Currently only `x86_64` arch supported for MacOS, build for `Apple M1` processors unfortunately not yet supported.
 
-## Credits ##
+# Credits
 
 - Forked from KomodoOcean
 - Komodo QT Wallet developer: **Ocean**
