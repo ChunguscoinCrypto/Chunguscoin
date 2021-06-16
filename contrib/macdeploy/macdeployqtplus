@@ -567,7 +567,7 @@ for p in config.add_resources:
 
 # ------------------------------------------------
 
-if len(config.fancy) == 1:
+if len(config.fancy) == 0:
     if verbose >= 3:
         print("Fancy: Importing plistlib...")
     try:
