@@ -6,7 +6,7 @@ Name "Chunguscoin (Chunguscoin-Qt)"
 OutFile "chunguscoin-qt-install.exe"
 RequestExecutionLevel admin
 InstallDir "$PROGRAMFILES64\Chunguscoin"
-Icon "chunguscoin.ico"
+Icon "chung.ico"
 CRCCheck on
 
 ; Includes
@@ -87,11 +87,4 @@ StrCmp $0 "OK" next_5
 MessageBox MB_OK|MB_ICONEXCLAMATION "Failed to fetch ZCash params, click OK to abort installation" /SD IDOK
 Abort
 next_5:
-SectionEnd
-
-Section "Create chunguscoin.conf" Section2
-  SetOverwrite on
-  CreateDirectory "$APPDATA\Chunguscoin"  
-  SetOutPath $APPDATA\Chunguscoin
-  File "content\chunguscoin.conf"
 SectionEnd
