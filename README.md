@@ -74,9 +74,7 @@ xcode-select --install
 # Update brew and install dependencies
 brew update
 brew upgrade
-brew tap discoteq/discoteq; brew install flock
 brew install autoconf autogen automake
-# brew install gcc@6
 brew install binutils
 brew install protobuf
 brew install coreutils
