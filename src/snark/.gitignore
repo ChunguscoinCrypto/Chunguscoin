@@ -10,6 +10,7 @@ doxygen/
 libsnark/gtests
 libsnark/gadgetlib2/examples/tutorial
 libsnark/gadgetlib2/tests/gadgetlib2_test
+!Makefile
 
 libsnark/algebra/curves/tests/test_bilinearity
 libsnark/algebra/curves/tests/test_groups
