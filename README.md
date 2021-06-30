@@ -11,7 +11,7 @@ Chunguscoin [CHUNG, Ȼ]
 
 </div>
 
-Chunguscoin is an meme based, opensource, decentalized, peer-to-peer digital currency with a multipurpose design.
+Chunguscoin is a meme based, opensource, decentalized, peer-to-peer digital currency with a multipurpose design.
 
 *Chunguscoin is a Komodo Smart Chain and the QT wallet was forked from KomodoOcean.*
 
