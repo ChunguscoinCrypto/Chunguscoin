@@ -35,6 +35,11 @@ Chunguscoin is built on Komodo, which is capable of doing all DeFi things using 
 - [**Pegs**](https://developers.komodoplatform.com/basic-docs/antara/antara-api/pegs.html), to make decentralized stablecoins or making pegged cryptocurrencies to other kind of assets.
 - [**Decentralized faucets**](https://developers.komodoplatform.com/basic-docs/antara/antara-api/faucet.html), to give away free CHUNG to people.
 
+# Launch via komodod
+```bash
+-ac_name=CHUNG -ac_reward=5000000000 -ac_halving=3000000 -addnode=172.106.70.133:22001 -addnode=node2.chunguscoin.net:22001
+```
+
 # How to build?
 
 #### Linux
