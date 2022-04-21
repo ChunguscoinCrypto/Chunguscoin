@@ -24,7 +24,8 @@ endef
 
 define $(package)_preprocess_cmds
   cp -f $(BASEDIR)/config.guess $(BASEDIR)/config.sub build-aux &&\
-  sed "s/pthread-stubs//" -i configure
+  sed "s/pthread-stubs//" -i configure &&\
+  chmod +x configure
 endef
 
 # Don't install xcb headers to the default path in order to work around a qt
