@@ -54,7 +54,7 @@ git clone https://github.com/ChunguscoinCrypto/Chunguscoin
 cd chunguscoin
 ./zcutil/fetch-params.sh
 # -j8 = using 8 threads for the compilation - replace 8 with number of threads you want to use
-./build.sh -j8
+./zcutil/build.sh -j8
 #This can take some time.
 ```
 
