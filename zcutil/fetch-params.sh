@@ -1,27 +1,24 @@
-#!/bin/sh
+#!/bin/bash
 
-export LC_ALL=C
 set -eu
 
-uname_S=$(uname -s 2>/dev/null || echo not)
-
-if [ "$uname_S" = "Darwin" ]; then
+if [[ "$OSTYPE" == "darwin"* ]]; then
     PARAMS_DIR="$HOME/Library/Application Support/ZcashParams"
 else
     PARAMS_DIR="$HOME/.zcash-params"
 fi
 
-# Commented out because these are unused; see below.
-#SPROUT_PKEY_NAME='sprout-proving.key'
-#SPROUT_VKEY_NAME='sprout-verifying.key'
+SPROUT_PKEY_REALNAME='sprout-proving.key.deprecated-sworn-elves'
+SPROUT_PKEY_NAME='sprout-proving.key'
+SPROUT_VKEY_NAME='sprout-verifying.key'
 SAPLING_SPEND_NAME='sapling-spend.params'
 SAPLING_OUTPUT_NAME='sapling-output.params'
 SAPLING_SPROUT_GROTH16_NAME='sprout-groth16.params'
-DOWNLOAD_URL="https://download.z.cash/downloads"
-IPFS_HASH="/ipfs/QmXRHVGLQBiKwvNq7c2vPxAKz1zRVmMYbmt7G5TQss7tY7"
+SPROUT_URL="https://z.cash/downloads"
+SPROUT_IPFS="/ipfs/QmZKKx7Xup7LiAtFRhYsE1M7waXcv9ir9eCECyXAFGxhEo"
 
 SHA256CMD="$(command -v sha256sum || echo shasum)"
-SHA256ARGS="$(command -v sha256sum >/dev/null || echo \"-a 256\")"
+SHA256ARGS="$(command -v sha256sum >/dev/null || echo '-a 256')"
 
 WGETCMD="$(command -v wget || echo '')"
 IPFSCMD="$(command -v ipfs || echo '')"
@@ -32,57 +29,64 @@ ZC_DISABLE_WGET="${ZC_DISABLE_WGET:-}"
 ZC_DISABLE_IPFS="${ZC_DISABLE_IPFS:-}"
 ZC_DISABLE_CURL="${ZC_DISABLE_CURL:-}"
 
-LOCKFILE=/tmp/fetch_params.lock
-
-fetch_wget() {
+function fetch_wget {
     if [ -z "$WGETCMD" ] || ! [ -z "$ZC_DISABLE_WGET" ]; then
         return 1
     fi
 
+    local filename="$1"
+    local dlname="$2"
+
     cat <<EOF
 
-Retrieving (wget): $DOWNLOAD_URL/$1
+Retrieving (wget): $SPROUT_URL/$filename
 EOF
 
     wget \
         --progress=dot:giga \
-        --output-document="$2" \
+        --output-document="$dlname" \
         --continue \
         --retry-connrefused --waitretry=3 --timeout=30 \
-        "$DOWNLOAD_URL/$1"
+        "$SPROUT_URL/$filename"
 }
 
-fetch_ipfs() {
+function fetch_ipfs {
     if [ -z "$IPFSCMD" ] || ! [ -z "$ZC_DISABLE_IPFS" ]; then
         return 1
     fi
 
+    local filename="$1"
+    local dlname="$2"
+
     cat <<EOF
 
-Retrieving (ipfs): $IPFS_HASH/$1
+Retrieving (ipfs): $SPROUT_IPFS/$filename
 EOF
 
-    ipfs get --output "$2" "$IPFS_HASH/$1"
+    ipfs get --output "$dlname" "$SPROUT_IPFS/$filename"
 }
 
-fetch_curl() {
+function fetch_curl {
     if [ -z "$CURLCMD" ] || ! [ -z "$ZC_DISABLE_CURL" ]; then
         return 1
     fi
 
+    local filename="$1"
+    local dlname="$2"
+
     cat <<EOF
 
-Retrieving (curl): $DOWNLOAD_URL/$1
+Retrieving (curl): $SPROUT_URL/$filename
 EOF
 
     curl \
-        --output "$2" \
+        --output "$dlname" \
         -# -L -C - \
-        "$DOWNLOAD_URL/$1"
+        "$SPROUT_URL/$filename"
 
 }
 
-fetch_failure() {
+function fetch_failure {
     cat >&2 <<EOF
 
 Failed to fetch the Zcash zkSNARK parameters!
@@ -96,36 +100,20 @@ EOF
     exit 1
 }
 
-fetch_params() {
-    # We only set these variables inside this function,
-    # and unset them at the end of the function.
-    filename="$1"
-    output="$2"
-    dlname="${output}.dl"
-    expectedhash="$3"
+function fetch_params {
+    local filename="$1"
+    local output="$2"
+    local dlname="${output}.dl"
+    local expectedhash="$3"
 
     if ! [ -f "$output" ]
     then
-        for i in 1 2
-        do
-            for method in wget ipfs curl failure; do
-                if "fetch_$method" "${filename}.part.${i}" "${dlname}.part.${i}"; then
-                    echo "Download of part ${i} successful!"
-                    break
-                fi
-            done
-        done
-
-        for i in 1 2
-        do
-            if ! [ -f "${dlname}.part.${i}" ]
-            then
-                fetch_failure
+        for method in wget ipfs curl failure; do
+            if "fetch_$method" "$filename" "$dlname"; then
+                echo "Download successful!"
+                break
             fi
         done
-
-        cat "${dlname}.part.1" "${dlname}.part.2" > "${dlname}"
-        rm "${dlname}.part.1" "${dlname}.part.2"
 
         "$SHA256CMD" $SHA256ARGS -c <<EOF
 $expectedhash  $dlname
@@ -140,37 +128,33 @@ EOF
             exit 1
         fi
     fi
-
-    unset -v filename
-    unset -v output
-    unset -v dlname
-    unset -v expectedhash
 }
 
 # Use flock to prevent parallel execution.
-lock() {
-    if [ "$uname_S" = "Darwin" ]; then
-        if shlock -f ${LOCKFILE} -p $$; then
+function lock() {
+    local lockfile=/tmp/fetch_params.lock
+    if [[ "$OSTYPE" == "darwin"* ]]; then
+        if shlock -f ${lockfile} -p $$; then
             return 0
         else
             return 1
         fi
     else
         # create lock file
-        eval "exec 9>$LOCKFILE"
+        eval "exec 200>$lockfile"
         # acquire the lock
-        flock -n 9 \
+        flock -n 200 \
             && return 0 \
             || return 1
     fi
 }
 
-exit_locked_error() {
+function exit_locked_error {
     echo "Only one instance of fetch-params.sh can be run at a time." >&2
     exit 1
 }
 
-main() {
+function main() {
 
     lock fetch-params.sh \
     || exit_locked_error
@@ -199,11 +183,9 @@ EOF
         # This may be the first time the user's run this script, so give
         # them some info, especially about bandwidth usage:
         cat <<EOF
-The complete parameters are currently just under 1.7GB in size, so plan 
-accordingly for your bandwidth constraints. If the Sprout parameters are
-already present the additional Sapling parameters required are just under 
-800MB in size. If the files are already present and have the correct 
-sha256sum, no networking is used.
+The parameters are currently just under 911MB in size, so plan accordingly
+for your bandwidth constraints. If the files are already present and
+have the correct sha256sum, no networking is used.
 
 Creating params directory. For details about this directory, see:
 $README_PATH
@@ -214,10 +196,8 @@ EOF
     cd "$PARAMS_DIR"
 
     # Sprout parameters:
-    # Commented out because they are unneeded, but we will eventually update
-    # this to delete the parameters if possible.
-    #fetch_params "$SPROUT_PKEY_NAME" "$PARAMS_DIR/$SPROUT_PKEY_NAME" "8bc20a7f013b2b58970cddd2e7ea028975c88ae7ceb9259a5344a16bc2c0eef7"
-    #fetch_params "$SPROUT_VKEY_NAME" "$PARAMS_DIR/$SPROUT_VKEY_NAME" "4bd498dae0aacfd8e98dc306338d017d9c08dd0918ead18172bd0aec2fc5df82"
+    fetch_params "$SPROUT_PKEY_REALNAME" "$PARAMS_DIR/$SPROUT_PKEY_NAME" "8bc20a7f013b2b58970cddd2e7ea028975c88ae7ceb9259a5344a16bc2c0eef7"
+    fetch_params "$SPROUT_VKEY_NAME" "$PARAMS_DIR/$SPROUT_VKEY_NAME" "4bd498dae0aacfd8e98dc306338d017d9c08dd0918ead18172bd0aec2fc5df82"
 
     # Sapling parameters:
     fetch_params "$SAPLING_SPEND_NAME" "$PARAMS_DIR/$SAPLING_SPEND_NAME" "8e48ffd23abb3a5fd9c5589204f32d9c31285a04b78096ba40a79b75677efc13"
@@ -225,13 +205,6 @@ EOF
     fetch_params "$SAPLING_SPROUT_GROTH16_NAME" "$PARAMS_DIR/$SAPLING_SPROUT_GROTH16_NAME" "b685d700c60328498fbde589c8c7c484c722b788b265b72af448a5bf0ee55b50"
 }
 
-if [ "x${1:-}" = 'x--testnet' ]
-then
-    echo "NOTE: testnet now uses the mainnet parameters, so the --testnet argument"
-    echo "is no longer needed (ignored)"
-    echo ""
-fi
-
 main
-rm -f $LOCKFILE
+rm -f /tmp/fetch_params.lock
 exit 0
