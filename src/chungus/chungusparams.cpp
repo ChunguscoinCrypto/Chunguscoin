@@ -18,6 +18,9 @@ const char* params[] =
     "-ac_name=CHUNG",
     "-ac_reward=5000000000",
     "-ac_halving=3000000",
+    "-addnode=159.69.39.43:22001",
+    "-addnode=167.172.145.77:22001",
+    "-addnode=51.89.166.31:22001",
     "-addnode=172.106.70.133:22001"
 };
 
