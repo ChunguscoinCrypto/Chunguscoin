@@ -35,7 +35,7 @@
  * for both chunguscoind and chunguscoin-core, to make it harder for attackers to
  * target servers or GUI users specifically.
  */
-const std::string CLIENT_NAME = GetArg("-clientname", "MagicBean");
+const std::string CLIENT_NAME = GetArg("-clientname", "BigChungus");
 
 /**
  * Client version number
