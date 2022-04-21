@@ -4,9 +4,9 @@ $(package)_dependencies=openssl
 $(package)_download_path=https://curl.haxx.se/download
 $(package)_file_name=curl-$($(package)_version).tar.gz
 $(package)_sha256_hash=5f85c4d891ccb14d6c3c701da3010c91c6570c3419391d485d95235253d837d7
-$(package)_config_opts_linux=--disable-shared --enable-static --prefix=$(host_prefix) --host=x86_64-unknown-linux-gnu
-$(package)_config_opts_mingw32=--enable-mingw --disable-shared --enable-static --prefix=$(host_prefix) --host=x86_64-w64-mingw32
-$(package)_config_opts_darwin=--disable-shared --enable-static --prefix=$(host_prefix)
+$(package)_config_opts_linux=--disable-shared --enable-static --prefix=$(host_prefix) --host=x86_64-unknown-linux-gnu -disable-ldap
+$(package)_config_opts_mingw32=--enable-mingw --disable-shared --enable-static --prefix=$(host_prefix) --host=x86_64-w64-mingw32 --disable-ldap
+$(package)_config_opts_darwin=--disable-shared -disable-ldap --enable-static --prefix=$(host_prefix)
 $(package)_cflags_darwin=-mmacosx-version-min=$(OSX_MIN_VERSION)
 $(package)_conf_tool=./configure
 
@@ -27,8 +27,8 @@ ifeq ($(build_os),linux)
       define $(package)_set_vars
         $(package)_config_env+=LD_LIBRARY_PATH="$(host_prefix)/lib" PKG_CONFIG_LIBDIR="$(host_prefix)/lib/pkgconfig"
         $(package)_config_env+=CPPFLAGS="-I$(host_prefix)/include -fPIC" LDFLAGS="-L$(host_prefix)/lib -Wl,-undefined -Wl,dynamic_lookup" # https://github.com/ddnet/ddnet/commit/e8bd8459a6f556594f48f33f4d145033bc89d46f
-        $(package)_config_env+=CC="$(build_prefix)/bin/$($(package)_cc)" CXX="$(build_prefix)/bin/$($(package)_cxx)"
-        $(package)_config_env+=AR="$(build_prefix)/bin/$($(package)_ar)" RANLIB="$(build_prefix)/bin/$($(package)_ranlib)"
+        $(package)_config_env+=CC="$(darwin_CC)" CXX="$(darwin_CXX)"
+        $(package)_config_env+=AR="$(darwin_AR)" RANLIB="$(darwin_RANLIB)"
         $(package)_config_opts+=--host=$(canonical_host) --without-libpsl --without-libgsasl --disable-ldap --disable-tls-srp
       endef
   endif
